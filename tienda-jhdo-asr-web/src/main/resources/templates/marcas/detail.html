@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(${marca.nombre})}"></head>
+<body>
+<nav th:replace="~{fragments/navbar :: navbar('')}"></nav>
+<main class="container py-5">
+    <div class="mb-4">
+        <a class="btn btn-outline-secondary" th:href="@{/productos}">← Volver a productos</a>
+    </div>
+    <div class="page-header mb-5">
+        <h1 class="display-6 fw-bold" th:text="${marca.nombre}">Marca</h1>
+    </div>
+    <h2 class="h4 mb-4">Productos de esta marca</h2>
+    <p class="text-muted" th:if="${#lists.isEmpty(marca.productos)}">Esta marca no tiene productos disponibles.</p>
+    <div class="row g-4" th:if="${not #lists.isEmpty(marca.productos)}">
+        <div class="col-12 col-md-6 col-lg-4" th:each="p : ${marca.productos}">
+            <div th:replace="~{fragments/producto-card :: productoCard(${p})}"></div>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

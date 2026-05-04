@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(${categoria.nombre})}"></head>
+<body>
+<nav th:replace="~{fragments/navbar :: navbar('categorias')}"></nav>
+<main class="container py-5">
+    <div class="mb-4">
+        <a class="btn btn-outline-secondary" th:href="@{/categorias}">← Volver a categorías</a>
+    </div>
+    <div class="card mb-5 border-0 shadow-sm rounded-3 overflow-hidden">
+        <img th:if="${categoria.imagen != null}"
+             th:src="@{/imagenes/categorias/{img}(img=${categoria.imagen})}"
+             th:alt="${categoria.nombre}" class="card-img-top" style="max-height:350px;object-fit:cover;">
+        <img th:if="${categoria.imagen == null}"
+             th:src="@{/imagenes/categorias/not-available.jpg}" alt=""
+             class="card-img-top" style="max-height:350px;object-fit:cover;">
+        <div class="card-body p-4">
+            <h1 class="display-6 fw-bold" th:text="${categoria.nombre}">Nombre</h1>
+            <p class="lead" th:text="${categoria.descripcion}">Descripción</p>
+        </div>
+    </div>
+
+    <!-- Productos ordenados alfabéticamente (actividad 7) -->
+    <h2 class="h4 mb-4">Productos en esta categoría</h2>
+    <p class="text-muted" th:if="${#lists.isEmpty(productosOrdenados)}">
+        No hay productos en esta categoría.
+    </p>
+    <div class="row g-4" th:if="${not #lists.isEmpty(productosOrdenados)}">
+        <div class="col-12 col-md-6 col-lg-4" th:each="p : ${productosOrdenados}">
+            <div th:replace="~{fragments/producto-card :: productoCard(${p})}"></div>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

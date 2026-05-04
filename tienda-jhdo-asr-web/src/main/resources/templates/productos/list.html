@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Productos')}"></head>
+<body>
+<nav th:replace="~{fragments/navbar :: navbar('productos')}"></nav>
+<main class="container py-5">
+    <section class="page-header mb-5">
+        <h1 class="display-6 fw-bold mb-2">Todos los productos</h1>
+        <p class="mb-0">Explora nuestra colección completa de calzado deportivo y urbano.</p>
+    </section>
+    <section class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4" th:each="p : ${productos}">
+            <div th:replace="~{fragments/producto-card :: productoCard(${p})}"></div>
+        </div>
+    </section>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

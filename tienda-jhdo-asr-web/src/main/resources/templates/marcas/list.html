@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Marcas')}"></head>
+<body>
+<nav th:replace="~{fragments/navbar :: navbar('')}"></nav>
+<main class="container py-5">
+    <section class="page-header mb-5">
+        <h1 class="display-6 fw-bold">Marcas</h1>
+        <p>Todas las marcas disponibles en nuestra tienda.</p>
+    </section>
+    <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4" th:each="m : ${marcas}">
+            <div class="card border-0 shadow-sm rounded-3 h-100">
+                <div class="card-body">
+                    <h2 class="h5" th:text="${m.nombre}">Marca</h2>
+                    <a th:href="@{/marcas/{id}(id=${m.id})}" class="btn btn-outline-primary btn-sm">Ver productos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

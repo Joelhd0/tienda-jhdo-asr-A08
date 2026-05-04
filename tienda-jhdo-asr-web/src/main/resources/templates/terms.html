@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Condiciones de uso')}"></head>
+<body>
+<nav th:replace="~{fragments/navbar :: navbar('')}"></nav>
+<main class="container py-5">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4 p-md-5">
+            <h1 class="mb-4">Condiciones de uso</h1>
+            <p class="lead">Bienvenido a Tienda JHDO ASR. Al acceder y utilizar este sitio web, aceptas las siguientes condiciones de uso.</p>
+
+            <h2 class="h5 mt-4">1. Uso del sitio</h2>
+            <p>Este sitio web es un proyecto académico desarrollado con Spring Boot y Thymeleaf. Su contenido es de carácter demostrativo.</p>
+
+            <h2 class="h5 mt-4">2. Propiedad intelectual</h2>
+            <p>Los contenidos, imágenes y textos de este sitio son utilizados con fines educativos. Las marcas mencionadas pertenecen a sus respectivos propietarios.</p>
+
+            <h2 class="h5 mt-4">3. Responsabilidad</h2>
+            <p>Este sitio no realiza transacciones comerciales reales. No nos hacemos responsables del uso que se haga de la información aquí contenida.</p>
+
+            <h2 class="h5 mt-4">4. Privacidad</h2>
+            <p>No recopilamos datos personales de los usuarios. El carrito de la compra se almacena únicamente en la sesión del navegador y se elimina al cerrarlo.</p>
+
+            <div class="mt-4">
+                <a th:href="@{/}" class="btn btn-outline-primary">← Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

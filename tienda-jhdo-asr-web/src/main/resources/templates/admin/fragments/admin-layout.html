@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="adminHead(titulo)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${titulo} + ' | Admin JHDO ASR'">Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body { background-color: #f1f3f5; }
+        .sidebar { min-height: 100vh; background: #212529; }
+        .sidebar .nav-link { color: #adb5bd; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { color: #fff; background: rgba(255,255,255,.1); border-radius: .375rem; }
+        .sidebar .brand { color: #fff; font-weight: 700; font-size: 1.1rem; }
+        .admin-content { padding: 2rem; }
+        .user-badge { background: rgba(255,255,255,.1); border-radius: .375rem; padding: .4rem .75rem; }
+    </style>
+</head>
+
+<nav th:fragment="adminSidebar" class="sidebar col-md-2 d-none d-md-flex flex-column p-3 gap-2">
+    <a class="brand mb-3 text-decoration-none" th:href="@{/admin}">
+        <i class="bi bi-shop me-2"></i>Admin JHDO ASR
+    </a>
+
+    <ul class="nav flex-column gap-1">
+        <li class="nav-item">
+            <a class="nav-link px-3 py-2" th:href="@{/admin/marcas}">
+                <i class="bi bi-patch-check me-2"></i>Marcas
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-3 py-2" th:href="@{/admin/productos}">
+                <i class="bi bi-box-seam me-2"></i>Productos
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-3 py-2" th:href="@{/admin/categorias}">
+                <i class="bi bi-grid me-2"></i>Categorías
+            </a>
+        </li>
+    </ul>
+
+    <div class="mt-auto d-flex flex-column gap-2">
+        <!-- Usuario autenticado -->
+        <div class="user-badge text-light small d-flex align-items-center gap-2">
+            <i class="bi bi-person-circle"></i>
+            <span sec:authentication="name">admin</span>
+        </div>
+
+        <!-- Ir a la tienda -->
+        <a class="nav-link px-3 py-2" th:href="@{/}">
+            <i class="bi bi-arrow-left me-2"></i>Ir a la tienda
+        </a>
+
+        <!-- Cerrar sesión -->
+        <form th:action="@{/admin/logout}" method="post" class="m-0">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <button type="submit" class="btn btn-outline-danger btn-sm w-100">
+                <i class="bi bi-box-arrow-right me-1"></i>Cerrar sesión
+            </button>
+        </form>
+    </div>
+</nav>
+</html>

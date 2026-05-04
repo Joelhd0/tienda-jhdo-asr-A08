@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Inicio')}"></head>
+<body>
+
+<nav th:replace="~{fragments/navbar :: navbar('inicio')}"></nav>
+
+<main class="container py-5">
+    <section class="page-header mb-5">
+        <h1 class="display-5 fw-bold">Tu tienda de zapatillas con estilo</h1>
+        <p class="lead mt-3">Descubre categorías de calzado deportivo, urbano y ofertas destacadas.</p>
+        <a class="btn btn-light btn-lg mt-3 me-2" th:href="@{/categorias}">Ver categorías</a>
+        <a class="btn btn-outline-light btn-lg mt-3" th:href="@{/productos}">Ver productos</a>
+    </section>
+
+    <section class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm rounded-3">
+                <div class="card-body">
+                    <h3 class="h5"><i class="bi bi-grid-fill text-primary me-2"></i>Catálogo por categorías</h3>
+                    <p class="card-text">Explora fácilmente running, urbano, botas y más.</p>
+                    <a th:href="@{/categorias}" class="btn btn-outline-primary btn-sm">Ver categorías</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm rounded-3">
+                <div class="card-body">
+                    <h3 class="h5"><i class="bi bi-box-seam text-success me-2"></i>Todos los productos</h3>
+                    <p class="card-text">Más de 20 modelos de las mejores marcas del mercado.</p>
+                    <a th:href="@{/productos}" class="btn btn-outline-success btn-sm">Ver productos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm rounded-3">
+                <div class="card-body">
+                    <h3 class="h5"><i class="bi bi-tag-fill text-danger me-2"></i>Ofertas activas</h3>
+                    <p class="card-text">Descuentos de hasta el 30% en modelos seleccionados.</p>
+                    <a th:href="@{/categorias/4}" class="btn btn-outline-danger btn-sm">Ver ofertas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
