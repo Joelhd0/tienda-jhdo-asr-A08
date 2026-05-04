@@ -12,10 +12,7 @@ import lombok.ToString;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Entidad JPA que representa una categoría de productos en la tienda.
- * Actividad 4: migrada a JPA/H2. Actividad 7: relación ManyToMany con Producto.
- */
+
 @Entity
 @Table(name = "categorias")
 @Data

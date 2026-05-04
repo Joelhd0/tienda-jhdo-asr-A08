@@ -16,10 +16,6 @@ public class ProductoServiceImpl implements ProductoService {
         this.productoRepository = productoRepository;
     }
 
-    /**
-     * Devuelve todos los productos con categorías y marca ya inicializadas,
-     * evitando LazyInitializationException en las vistas Thymeleaf.
-     */
     @Override
     public List<Producto> findAll() {
         return productoRepository.findAllWithCategoriasAndMarca();

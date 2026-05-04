@@ -11,10 +11,6 @@ import lombok.ToString;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Entidad JPA que representa un producto de la tienda (actividad 5).
- * Actividad 7: relaciones con Marca (ManyToOne) y Categoria (ManyToMany).
- */
 @Entity
 @Table(name = "productos")
 @Data
@@ -56,18 +52,11 @@ public class Producto {
     @Min(0) @Max(99)
     private Integer descuento;
 
-    /**
-     * Relación ManyToOne con Marca (actividad 7).
-     * Un producto pertenece a una sola marca (obligatorio).
-     */
+ 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "marca_id", nullable = false)
     private Marca marca;
 
-    /**
-     * Relación ManyToMany con Categoria (actividad 7).
-     * Un producto puede estar en varias categorías.
-     */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "producto_categoria",
@@ -82,7 +71,6 @@ public class Producto {
         return precio * (1.0 - descuento / 100.0);
     }
 
-    /** Slug SEO-friendly a partir del nombre (actividad 5). */
     public String getSlug() {
         if (nombre == null) return "";
         return nombre.toLowerCase()

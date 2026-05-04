@@ -8,7 +8,6 @@
         <a class="btn btn-outline-secondary" th:href="@{/productos}">← Volver a productos</a>
     </div>
     <div class="row g-5">
-        <!-- Imagen grande -->
         <div class="col-12 col-md-5">
             <div class="position-relative">
                 <span th:if="${producto.descuento > 0}"
@@ -24,9 +23,7 @@
                      class="img-fluid rounded-3 shadow">
             </div>
         </div>
-        <!-- Detalle -->
         <div class="col-12 col-md-7">
-            <!-- Marca -->
             <p class="text-muted mb-1" th:if="${producto.marca != null}">
                 <a th:href="@{/marcas/{id}(id=${producto.marca.id})}"
                    class="text-muted fw-semibold"
@@ -35,12 +32,10 @@
 
             <h1 class="display-6 fw-bold" th:text="${producto.nombre}">Nombre</h1>
 
-            <!-- EAN-13 -->
             <p class="text-secondary small">
                 <i class="bi bi-upc-scan"></i> EAN-13: <span th:text="${producto.ean}">0000000000000</span>
             </p>
 
-            <!-- Precio -->
             <div class="mb-3">
                 <span th:if="${producto.descuento > 0}">
                     <span class="fs-2 fw-bold text-danger"
@@ -52,7 +47,6 @@
                       th:text="${#numbers.formatDecimal(producto.precio, 1, 2)} + ' €'">0 €</span>
             </div>
 
-            <!-- Categorías -->
             <div class="mb-3" th:if="${not #sets.isEmpty(producto.categorias)}">
                 <span class="fw-semibold me-2">Categorías:</span>
                 <span th:if="${#sets.size(producto.categorias) == 1}">
@@ -69,7 +63,6 @@
                 </ul>
             </div>
 
-            <!-- Botón añadir al carrito -->
             <form th:action="@{/carrito/añadir/{id}(id=${producto.id})}" method="post" class="mb-4">
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                 <input type="hidden" name="origen"
@@ -79,7 +72,6 @@
                 </button>
             </form>
 
-            <!-- Descripción completa -->
             <p class="lead" th:text="${producto.descripcion}">Descripción completa.</p>
         </div>
     </div>

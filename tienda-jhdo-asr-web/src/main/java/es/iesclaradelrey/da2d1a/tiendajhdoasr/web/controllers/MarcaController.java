@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Comparator;
 import java.util.Optional;
 
-/**
- * Controlador público de marcas (actividad 7).
- * Muestra la marca y sus productos ordenados alfabéticamente.
- */
 @Controller
 @RequestMapping("/marcas")
 public class MarcaController {

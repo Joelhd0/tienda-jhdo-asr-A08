@@ -10,9 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Entidad JPA que representa la marca de un producto (actividad 7).
- */
+
 @Entity
 @Table(name = "marcas")
 @Data

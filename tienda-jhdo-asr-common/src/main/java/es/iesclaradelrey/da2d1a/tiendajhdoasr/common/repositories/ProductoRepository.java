@@ -7,13 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-/** Repositorio Spring Data JPA para Producto (actividad 5). */
+/** Repositorio Spring Data JPA para Producto*/
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
-    /**
-     * Carga todos los productos junto con sus categorías y marca en una sola consulta,
-     * evitando LazyInitializationException al renderizar las plantillas Thymeleaf.
-     */
     @Query("SELECT DISTINCT p FROM Producto p " +
            "LEFT JOIN FETCH p.categorias " +
            "LEFT JOIN FETCH p.marca")

@@ -38,7 +38,7 @@ public class CategoriaController {
         Optional<Categoria> categoria = categoriaService.findById(id);
         if (categoria.isEmpty()) return "redirect:/categorias";
 
-        // Ordenar productos alfabéticamente con expresión funcional (actividad 7)
+        // Ordenar productos alfabéticamente con expresión funcional
         List<Producto> productosOrdenados = new ArrayList<>(categoria.get().getProductos());
         productosOrdenados.sort(Comparator.comparing(p -> p.getNombre().toLowerCase()));
 

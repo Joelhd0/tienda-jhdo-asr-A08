@@ -1,17 +1,13 @@
--- =============================================
--- MARCAS (actividad 7)
--- =============================================
+-- MARCAS 
 INSERT INTO marcas (id, nombre, logo) VALUES (1, 'Nike', '/imagenes/marcas/nike.png');
 INSERT INTO marcas (id, nombre, logo) VALUES (2, 'Adidas', '/imagenes/marcas/adidas.png');
 INSERT INTO marcas (id, nombre, logo) VALUES (3, 'New Balance', NULL);
 INSERT INTO marcas (id, nombre, logo) VALUES (4, 'Puma', NULL);
 INSERT INTO marcas (id, nombre, logo) VALUES (5, 'Asics', NULL);
--- Marca sin productos (actividad 7 requisito)
+-- Marca sin productos 
 INSERT INTO marcas (id, nombre, logo) VALUES (6, 'Reebok', NULL);
 
--- =============================================
--- CATEGORIAS (actividad 4)
--- =============================================
+-- CATEGORIAS 
 INSERT INTO categorias (id, nombre, descripcion, imagen) VALUES (1, 'Zapatillas running', 'Modelos diseñados para correr y entrenar en asfalto, tierra o montaña. Amortiguación y soporte para largas distancias.', 'running.jpg');
 INSERT INTO categorias (id, nombre, descripcion, imagen) VALUES (2, 'Zapatillas urbanas', 'Modelos casuales perfectos para el uso diario en la ciudad. Comodidad y estilo combinados en cada paso.', 'urbanas.jpg');
 INSERT INTO categorias (id, nombre, descripcion, imagen) VALUES (3, 'Botas deportivas', 'Botas resistentes para exterior y temporadas frías. Impermeables y con suela de agarre reforzada.', 'botas.jpg');
@@ -19,10 +15,7 @@ INSERT INTO categorias (id, nombre, descripcion, imagen) VALUES (4, 'Ofertas', '
 -- Categoria sin productos (actividad 7 requisito)
 INSERT INTO categorias (id, nombre, descripcion, imagen) VALUES (5, 'Accesorios', 'Calcetines, plantillas y complementos para completar tu equipación deportiva.', NULL);
 
--- =============================================
--- PRODUCTOS (actividad 5) — al menos 20
--- Con y sin imagen, con y sin marca, descripciones largas
--- =============================================
+-- PRODUCTOS 
 
 -- Nike Running
 INSERT INTO productos (id, ean, nombre, descripcion, imagen, precio, descuento, marca_id)
@@ -135,14 +128,12 @@ VALUES (21, '8410522345719', 'Adidas Forum Low',
 'El Adidas Forum Low recupera la estética del baloncesto de los años 80 con un enfoque puramente street. Su upper de cuero, la tira del tobillo y la suela gruesa lo convierten en un ícono de la cultura urbana contemporánea. Colaboraciones con artistas y marcas de lujo lo mantienen siempre en el punto de mira.',
 '/imagenes/productos/adidas-forum.jpg', 99.99, 0, 2);
 
--- =============================================
--- RELACIONES PRODUCTO-CATEGORIA (actividad 7)
--- =============================================
+-- RELACIONES PRODUCTO-CATEGORIA 
 -- Running: 1,4,7,10,12,13,14,15,19
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (1, 1);
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (2, 1);
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (4, 1);
--- Producto 7 (New Balance 990v6) sin categoría intencionalmente (actividad 7 requisito 3)
+-- Producto 7 (New Balance 990v6) sin categoría intencionalmente
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (8, 1);
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (10, 1);
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (12, 1);
@@ -179,4 +170,3 @@ INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (18, 4);
 INSERT INTO producto_categoria (producto_id, categoria_id) VALUES (18, 2);
 
 -- Producto sin categoría: id=7 (NB 990v6) — sin INSERT en producto_categoria
--- (cumple actividad 7: "productos que no están en ninguna categoría")

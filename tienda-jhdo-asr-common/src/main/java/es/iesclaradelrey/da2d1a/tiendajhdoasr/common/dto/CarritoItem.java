@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-/**
- * DTO serializable que representa una línea del carrito en sesión HTTP.
- * No es entidad JPA: el carrito se guarda solo en la sesión del usuario.
- */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

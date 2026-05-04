@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-/**
- * Controlador público de productos (actividades 5 y 7).
- * URL base: /productos
- */
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
@@ -35,13 +31,6 @@ public class ProductoController {
         return "productos/list";
     }
 
-    /**
-     * Detalle de producto (actividad 5).
-     * La URL incluye el slug del nombre por motivos SEO, pero se ignora en el controlador.
-     * El motivo: el id es suficiente para identificar el producto; el slug solo sirve
-     * a los motores de búsqueda y se puede generar dinámicamente desde la entidad.
-     * Se usa ** como comodín para capturar cualquier valor del slug.
-     */
     @GetMapping("/{id}/**")
     public String detalle(@PathVariable Long id, Model model) {
         Optional<Producto> producto = productoService.findById(id);

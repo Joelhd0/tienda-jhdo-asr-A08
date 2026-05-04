@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Servicio que gestiona el carrito de la compra almacenado en la sesión HTTP.
- * No persiste datos: si el usuario cierra el navegador, el carrito se pierde.
- */
 @Service
 public class CarritoService {
 
